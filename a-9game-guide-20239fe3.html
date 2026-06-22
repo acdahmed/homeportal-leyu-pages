@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游 - 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            background-color: #faf7f0;
+            color: #2e3a3c;
+            line-height: 1.8;
+            padding: 0 20px;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            margin-top: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* 导航 */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #e3ddd0;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #3a5a5b;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4f6a6c;
+            font-size: 1rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #8aa8a0;
+        }
+
+        /* hero */
+        .hero {
+            background: #f3efe6;
+            border-radius: 20px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #1f3b3b;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #3f5556;
+            max-width: 720px;
+        }
+
+        .hero .highlight {
+            background: #dce6df;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-style: normal;
+        }
+
+        /* 卡片区域 */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 2.2rem 0 1.2rem 0;
+            color: #1f3b3b;
+            border-left: 4px solid #9bb7ad;
+            padding-left: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 2.2rem;
+        }
+
+        @media (max-width: 620px) {
+            .page {
+                padding: 1.5rem 1.2rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                margin-top: 8px;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+        }
+
+        .card {
+            background: #f9f6f0;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #2b4a4a;
+            margin-bottom: 0.6rem;
+        }
+
+        .card p {
+            color: #445e5e;
+            font-size: 0.98rem;
+        }
+
+        .scene-tag {
+            display: inline-block;
+            background: #eae3d6;
+            color: #385252;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 引用块 */
+        .quote-box {
+            background: #f1ede4;
+            border-left: 5px solid #9bb7ad;
+            padding: 1.4rem 2rem;
+            margin: 2.2rem 0;
+            border-radius: 0 14px 14px 0;
+            font-style: italic;
+            color: #2f4747;
+        }
+
+        .quote-box strong {
+            font-style: normal;
+            color: #1f3b3b;
+        }
+
+        .faq-summary {
+            margin: 2rem 0 1.2rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #ddd8cb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #1f3b3b;
+            margin-bottom: 4px;
+        }
+
+        .faq-a {
+            color: #496262;
+            font-size: 0.95rem;
+        }
+
+        .btn-more {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #9bb7ad;
+            color: #2e4f4f;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: 0.2s;
+            margin-top: 8px;
+        }
+
+        .btn-more:hover {
+            background: #dee9e0;
+            border-color: #7c9f94;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e3ddd0;
+            font-size: 0.9rem;
+            color: #6c8180;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <nav class="nav">
+        <div class="nav-logo">📖 九游</div>
+        <div class="nav-links">
+            <a href="#intro">介绍</a>
+            <a href="#scenes">场景</a>
+            <a href="#faq">说明</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="intro">
+        <h1>关于 <span class="highlight">九游</span> 的一点介绍</h1>
+        <p>
+            这里是 <a href="https://a-9game.com" style="color:#1f4a4a; text-decoration: underline; text-underline-offset: 3px;">九游</a> —— 一个致力于提供轻量、清晰信息呈现的站点。
+            我们试图在繁杂的网络中，留出一块干净、可信的角落，让浏览者更从容地获取实用的内容与指引。
+        </p>
+    </section>
+
+    <h2 class="section-title">三个常见的应用场景</h2>
+    <div class="card-grid" id="scenes">
+        <div class="card">
+            <span class="scene-tag">场景一 · 信息查阅</span>
+            <h3>快速定位所需内容</h3>
+            <p>很多朋友在寻找某些特定方向的信息时，往往需要花不少时间筛选。九游将相关主题做了结构化整理，帮助你在阅读时减少干扰，直达要点。</p>
+        </div>
+        <div class="card">
+            <span class="scene-tag">场景二 · 日常参考</span>
+            <h3>随手翻阅的轻参考</h3>
+            <p>无论是了解某个功能模块，还是对照操作步骤，九游都保持克制的排版与温和的语气，让浏览体验更接近一本安静的参考手册。</p>
+        </div>
+        <div class="card">
+            <span class="scene-tag">场景三 · 可信了解</span>
+            <h3>通过站点建立基本认知</h3>
+            <p>对于初次接触的朋友，九游提供平实的说明与常见问题汇总，帮助你在没有营销话术的环境下，形成自己对内容的判断。</p>
+        </div>
+        <div class="card">
+            <span class="scene-tag">场景四 · 移动端友好</span>
+            <h3>随时随地方便阅读</h3>
+            <p>页面针对不同屏幕做了响应式适配，无论你在手机、平板还是电脑上浏览，都能获得一致的、舒适的阅读体验。</p>
+        </div>
+    </div>
+
+    <div class="quote-box">
+        <strong>一点说明：</strong> 九游始终秉持真实、克制的信息呈现原则。我们不会夸大功能，也不会使用诱导性表述。这里的内容均基于可靠的日常经验与站点定位所编写，供你参考。
+    </div>
+
+    <h2 class="section-title" id="faq">常见说明</h2>
+    <div class="faq-summary">
+        <div class="faq-item">
+            <div class="faq-q">Q：九游适合哪些人浏览？</div>
+            <div class="faq-a">A：适合所有希望轻松了解相关主题的用户，无论你是初次接触还是已有一定经验，都能在这里找到平实的介绍与指引。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：内容更新频率如何？</div>
+            <div class="faq-a">A：我们会根据站点定位与用户反馈，持续优化页面结构与信息表述，但不会为了更新而更新，保持内容质量与可信度是第一位的。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：是否提供外部链接或资源？</div>
+            <div class="faq-a">A：九游本身聚焦于自身内容的呈现，必要时会提供相关引用，但所有链接都以清晰标注为前提，不会混杂广告链接。</div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 1.8rem;">
+        <a href="https://a-9game.com" class="btn-more">九游</a>
+    </div>
+
+    <div class="footer-note">
+        以温和、可信的方式呈现信息 —— <a href="https://a-9game.com" style="color:#3c5f5f; text-decoration: none;">九游</a>
+    </div>
+</div>
+</body>
+</html>
